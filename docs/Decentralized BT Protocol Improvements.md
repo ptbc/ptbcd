@@ -1,4 +1,4 @@
-##Decentralized BT Protocol Improvements##
+## Decentralized BT Protocol Improvements
 
 **Improvements** 
 
@@ -8,7 +8,7 @@
 4. Multi-node Trackers automatically form P2P network to sync the contributions and requests between the PeerList and each Peer. 
 5. Adopted the blockchain technology to reward the contributing P2P nodes and wrote the awards into blockchains. 
 
-###Why to Improve###
+### Why to Improve
 
 Customers who frequently use BT and PT downloading might encounter certain problems:
     1. Registration is not open to everyone due to a small community. Besides, for one reason or another, service might be temporarily unavailable or even the entire network might be shut down from time to time.
@@ -21,15 +21,15 @@ With the blockchain’s design thoughts in mind, we improved the PT site and its
     3. Reward the contributors so that newcomers are strongly motivated to contribute more.
     4. Certain resources can be obtained via transactions.  
 
-###Basic Terminology###
+### Basic Terminology
 
 **Infohash：** 20 bytes，the SHA1 Hash over the part of a torrent file that includes: 1. ITEM：length (size) and path (path with filename) 2. Name: The name to search for. 3. Piece length: The length (size) of a single piece. 4. Pieces: SHA1 Hash of every piece of this torrent. 5. Private: flag for restricted access.
 
-**Transaction hash：** 32 bytes, a unique Ethereum transaction, tx for short hereafter.
+**Transaction hash：** 32 bytes, a unique transaction hash, tx for short hereafter.
 
-**Address：** 20 bytes, same to the unique Ethereum address, represents an account, and employs the Elliptic Curve Digital Signature Algorithm (ECDSA) to generate paired public and private keys that use the secp256k1 curve. The process to create the address: 1. Generate a random private key; 2. Derive the public key from the private key; 3. Derive the address from the public key. 
+**Address：** 20 bytes, same to the unique address, represents an account, and employs the Elliptic Curve Digital Signature Algorithm (ECDSA) to generate paired public and private keys that use the secp256k1 curve. The process to create the address: 1. Generate a random private key; 2. Derive the public key from the private key; 3. Derive the address from the public key. 
 
-###Basic How-Tos###
+### Basic How-Tos
 
 1. Acquire Seed Resources
 	- Method 1: Search for and download resources from the blockchains via any node;
@@ -44,7 +44,7 @@ With the blockchain’s design thoughts in mind, we improved the PT site and its
 	- Launch up the node service.
 	- **Basic Requirements：** A public network address with a bandwidth no less than 100Mb
 
-###Technical Details###
+### Technical Details
 
 1. Upload Seeds to/Download Seeds from Blockchains
 
@@ -114,7 +114,7 @@ Award Amount:
 	9. Starting from the 22nd year, all the awards will be paid in the form of transaction tax. 
 	5. Currency transaction is allowed.
 
-###Protocols###
+### Protocols
 
 	Four sections included:
 	Torrent File Structure and Extension
@@ -314,7 +314,7 @@ Same as the BT Peer Wire Protocol
 	6. BT Client reports download info to a Tracker Server each time a download completes. Uploaded info includes: account info and the total traffic downloaded from this account. Fill the Event field as Completed.
 	7. A Tracker can update the uploaded traffic info on other Tracker Servers via P2P Service. 
 	
-###Blockchain Traffic Counting and Rewarding Process###
+### Blockchain Traffic Counting and Rewarding Process
 	
 	1. POW mechanism is used;
 	2. The node that gets the bookkeeping right is in charge of bookkeeping when billing time is due.
@@ -324,25 +324,25 @@ Same as the BT Peer Wire Protocol
 	6. The checking nodes are responsible for checking and confirming the contribution accuracy of all the tx, and whether the contribution value of each account is matched. 
 	7. Record into Blockchains if 6 (or more) nodes report positive verification.
 
-###Improvements on BT Download App###
+### Improvements on BT Download App
 
 	1. The seed file shall specify the Tracker Server address or an address list, and then switch to Blockchains to acquire the Tracker Server list.
 	2. The Announce protocol reported to the Tracker Server shall add the detailed information to differentiate the contributed traffic and acquired traffic from each Peer.
 	3. Adjust the report interval.
 
-###Node Descriptions###
+### Node Descriptions
 
 	1. Integrate the Tracker Server related features into the node codes.
 	2. Trackers communicate with each other via the P2P Service on each Blockchain node.
 	3. Each node is a Peer, with no functional difference.
 	4. Build main network: certain startup nodes are required, which have been integrated into the Node codes.
 
-###P2P Networking Process###
+### P2P Networking Process
 	
 	1. Once started, nodes shall automatically connect to the guiding nodes to add in P2P network.
 	2. A Node can discover other nodes via discover protocol and then automatically establish connections in between.
 
-###Node Startup###
+### Node Startup
 
 	1. Launch up the Node app
 	2. Initiate parameter analyzing
